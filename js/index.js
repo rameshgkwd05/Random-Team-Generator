@@ -173,6 +173,21 @@ function convertArrayOfObjectsToCSV(teamlist) {
 	// console.log(keys)
 
 	result = '';
+	
+	header = ' ,';
+	var playercount = 1;
+	keys.forEach(function (key){
+		var player = "Player"+playercount+", ";
+		playercount++;
+		header += player
+	})
+	header.slice(0, -2);
+	header += lineDelimiter
+	result+= header
+
+	// add data rows
+	var teamCount = 1;
+	var teamTitle = '';
 	data.forEach(function (item) {
 		// console.log(item)
 		line = '';
@@ -183,9 +198,12 @@ function convertArrayOfObjectsToCSV(teamlist) {
 		});
 		line.slice(0, -2);
 		line += lineDelimiter;
+		teamTitle = "Team-"+teamCount+", ";
+		teamCount++;
+		result += teamTitle;
 		result += line;
 	});
-
+	console.table(result);
 	return result;
 }
 
