@@ -26,7 +26,7 @@ function getRandomTeam(arr, groupSize) {
 }
 
 function padDummyPeople(peopleArray, groupSize) {
-	var dummiesNeeded = peopleArray.length%groupSize;
+	var dummiesNeeded = (groupSize - (peopleArray.length) % groupSize) % groupSize;
 	for(var di = 1; di <= dummiesNeeded; di++) {
 		peopleArray.push('dummy'+di);
 	}
