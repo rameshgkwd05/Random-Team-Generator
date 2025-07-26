@@ -3,6 +3,7 @@
 
 <head>
 	<title>Random Team Generator</title>
+	<meta charset="UTF-8">
 	<!-- <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Archivo+Narrow" rel="stylesheet"> -->
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 	<link rel="icon" href="./img/batsman.favicon.jpg">
@@ -12,35 +13,46 @@
 
 	<div id="app-container">
 		<h2><em>Infinity</em> <span>Sorter</span></h2>
-		<form id="team-settings">
-			<p>Team Size (How many people in Single team?)</p>
-			<input placeholder="Number of players per team" />
+		<form id="team-settings" align-center>
+			<p>Number of teams</p>
+			<input id="teamCount" placeholder="Number of teams to form" />
 			<p id="size-error" class="error-text"></p>
 			<p>Players List (Enter one value per line)</p>
-			<textarea placeholder="Enter single name per line" /></textarea>
+			<textarea id="playersList" placeholder="Enter single name per line" /></textarea>
 			<p id="people-error" class="error-text"></p>
 			<button>Generate Teams!</button>
-			<div id="tabularOutputDiv">
-				Tablular output:
-				<label class="switch">
-					<input id="tabular-output-switch" type="checkbox" checked>
-					<span class="slider round"></span>
-				  </label>				  
+			<div id="alignmentContainer">
+				<div id="tabularOutputDiv">
+					Tablular output:
+					<label class="switch">
+						<input id="tabular-output-switch" type="checkbox" checked>
+						<span class="slider round"></span>
+					</label>
+				</div>
+				<div id="customeLabelsDiv">
+					Use Custom Labels:
+					<label class="switch">
+						<input id="custom-labels-switch" type="checkbox" checked>
+						<span class="slider round"></span>
+					</label>
+				</div>
 			</div>
 		</form>
 
 		<div id="team-container"></div>
-		<hr/>
+		<hr />
 		<div id="team-table"></div>
-		
+
 		<a id="download-button" href='#' onclick='downloadCSV({ filename: "infinityTeamsData.csv" });'>Download CSV</a>
 	</div>
 
 	<script type="text/javascript" src="js/index.js"></script>
-	
+
 
 </body>
 <footer>
-	<a style="font-style: italic; color: #120aee; font-size: 11px; line-height: 20px;" href="https://github.com/rameshgkwd05/Random-Team-Generator">Github-source-code</a>
-  </footer>
+	<a style="font-style: italic; color: #120aee; font-size: 11px; line-height: 20px;"
+		href="https://github.com/rameshgkwd05/Random-Team-Generator">Github-source-code</a>
+</footer>
+
 </html>
