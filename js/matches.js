@@ -113,21 +113,6 @@ function generateMatches() {
     }
 }
 
-function downloadMatchesCSV(args) {
-    const matches = window.generatedMatches || [];
-    if (matches.length === 0) {
-        alert("No matches to download. Please generate matches first.");
-        return;
-    }
-
-    const csvContent = 'data:text/csv;charset=utf-8,Match #,Team A,Team B\n' + matches.join('\n');
-    const encodedUri = encodeURI(csvContent);
-    const link = document.createElement('a');
-    link.setAttribute('href', encodedUri);
-    link.setAttribute('download', args.filename || 'matches.csv');
-    link.click();
-}
-
 function toggleOutput() {
     const isTableOutput = document.getElementById('output-toggle').checked;
     const matchContainer = document.getElementById('match-container');
