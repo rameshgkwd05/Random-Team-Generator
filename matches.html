@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Match Generator</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="icon" href="./img/batsman.favicon.jpg">
+</head>
+
+<body>
+    <!-- Add navigation link to go back to the Teams Generator -->
+    <div style="text-align: right; margin: 10px;">
+        <a href="index.html" style="font-size: 16px; color: #007BFF; text-decoration: none;">Go to Teams Generator</a>
+    </div>
+
+    <div id="app-container">
+        <h2><em>Match</em> <span>Generator</span></h2>
+        <form id="match-settings" align-center>
+            <p>Team A Players (Enter one value per line)</p>
+            <textarea id="teamAList" placeholder="Enter Team A players, one per line"></textarea>
+            <p id="teamA-error" class="error-text"></p>
+
+            <p>Team B Players (Enter one value per line)</p>
+            <textarea id="teamBList" placeholder="Enter Team B players, one per line"></textarea>
+            <p id="teamB-error" class="error-text"></p>
+
+            <p>Size of a side in a match:</p>
+            <input type="number" id="side-size" placeholder="Enter size of a side (e.g., 1, 2, etc.)" min="1" />
+            <p id="side-size-error" class="error-text"></p>
+
+            <button type="button" id="generate-matches-button">Generate Matches!</button>
+        </form>
+
+        <!-- Toggle switch for table/CSV output -->
+        <div id="outputToggleDiv" style="margin-top: 20px;">
+            <label for="output-toggle">Table Output:</label>
+            <label class="switch">
+                <input id="output-toggle" type="checkbox" checked>
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div id="match-container"></div>
+        <div id="match-table-container"></div>
+        <hr />
+        <a id="download-matches-button" href='#' onclick='downloadMatchesCSV({ filename: "matchesData.csv" });'>Download Matches CSV</a>
+    </div>
+
+    <script type="text/javascript" src="js/matches.js"></script>
+
+</body>
+<footer>
+    <a style="font-style: italic; color: #120aee; font-size: 11px; line-height: 20px;"
+        href="https://github.com/rameshgkwd05/Random-Team-Generator">Github-source-code</a>
+</footer>
+
+</html>
