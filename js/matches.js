@@ -1,7 +1,7 @@
 function generateMatches() {
     let teamAList = document.getElementById('teamAList').value.trim().split('\n').filter(Boolean);
     let teamBList = document.getElementById('teamBList').value.trim().split('\n').filter(Boolean);
-    const sideSize = parseInt(document.getElementById('side-size').value, 10);
+    const sideSize = parseInt(document.getElementById('side-size').value, 10) || 1;
 
     // Validate input
     if (teamAList.length === 0 || teamBList.length === 0) {
@@ -46,7 +46,7 @@ function generateMatches() {
     matchTableContainer.innerHTML = ''; // Clear previous table
 
     const matches = [];
-    const maxMatches = Math.max(teamAList.length, teamBList.length); // Use the larger team size
+    const maxMatches = Math.ceil(Math.max(teamAList.length, teamBList.length) / sideSize); // Calculate matches based on side size
 
     for (let i = 0; i < maxMatches; i++) {
         const teamASide = teamAList.slice(i * sideSize, (i + 1) * sideSize).join(', ') || "Bye";
@@ -199,3 +199,9 @@ document.getElementById('generate-matches-button').addEventListener('click', gen
 
 // Attach event listener to the toggle switch
 document.getElementById('output-toggle').addEventListener('change', toggleOutput);
+
+// Set placeholder for side size input
+const sideSizeInput = document.getElementById('side-size');
+if (sideSizeInput) {
+    sideSizeInput.placeholder = "Enter side size (default is 1)";
+}
